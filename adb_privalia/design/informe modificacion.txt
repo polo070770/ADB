@@ -1,0 +1,18 @@
+Se ha creado una nueva entidad producto, la cuál es una entitad abstracta (que no se puede instanciar), por tanto no va a tener registros, de ser así, no hace falta
+una clave primaria para distinguir entre registros. Atributos:nom, marca, num_articles
+Un producto puede ser muchos artíclos, la cantidad se indica por "num_articles", cada vez que se ha vendido un artículo de un producto, se resta en 1.
+num_articles de campanya = suma de num_articles de todos los productos
+
+Se han eliminado los atributos nom y marca de la entitad "article"
+Nota: un producto (como superclase de "article) puede ser muchos artículos, estos artículos del mismo producto siempre tienen el mismo nombre y marca, pero pueden
+tener diferentes tamaños, colores y precios. También un identificador como clave primaria. 
+
+Entitad Factura_client: esta entitad es como una línea de venda del artículo que ha comprado un cliente, ya que cada una sólo apunta a un artículo. Se ha eliminado
+el atributo "import_factura", que antes era la suma de los precios de los artículos, pero ahora como factura_client sólo hace referencia a un único artículo, el importe
+se puede obtener desde la entidad apuntada "article".
+
+Para controlar el caso de que un cliente sólo puede comprar 5 artículos del mismo como maáximo, podemos mirar cuantas "foreign keys" ha tenido un registro de "Client_factura"
+a un mismo artículo.
+
+
+
