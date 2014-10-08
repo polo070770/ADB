@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS dades_entrega;
 DROP TABLE IF EXISTS familia;
 DROP TABLE IF EXISTS subfamilia;
 DROP TABLE IF EXISTS article;
+DROP TABLE IF EXISTS producte;
 
 CREATE TABLE familia(
   id_familia INTEGER PRIMARY KEY NOT NULL,
@@ -25,29 +26,33 @@ CREATE TABLE subfamilia(
 CREATE TABLE campanya(
 
 	id_campanya INTEGER PRIMARY KEY NOT NULL,
-
 	nom_campanya VARCHAR(30) NOT NULL,
-
-	data_inici DATE NOT NULL,
-	data_fi DATE NOT NULL,
-
 	marca VARCHAR(20),
 	num_articles INTEGER,
-
 	total_facturat FLOAT
+  data_inici DATE NOT NULL,
+  data_fi DATE NOT NULL,
+
+);
+
+CREATE TABLE producte(
+
+  id_producte INTEGER PRIMARY KEY NOT NULL,
+  nom VARCHAR(50),
+  marca VARCHAR(20),
+  num_articles INTEGER,
 
 );
 
 CREATE TABLE article(
+
   id_article INTEGER PRIMARY KEY NOT NULL,
-  nom VARCHAR(50) NOT NULL,
   talla FLOAT,
   color VARCHAR(20),
-  marca VARCHAR(20),
   preu FLOAT,
   
   id_subfam INTEGER,
-  id_campanya INTEGER,
+  id_campanya INTEGER,  
   
   FOREIGN KEY(id_subfam) REFERENCES subfamilia(id_subfamilia),
   FOREIGN KEY(id_campanya) REFERENCES campanya(id_campanya)
@@ -57,8 +62,6 @@ CREATE TABLE linea_factura(
 
 	id_client VARCHAR(10),
 	id_article INTEGER,
-	
-	import_article FLOAT,  
 
 	FOREIGN KEY(id_article) REFERENCES article(id_article),
 	FOREIGN KEY(id_client) REFERENCES client(email)
@@ -84,7 +87,7 @@ CREATE TABLE dades_entrega(
   codi_postal VARCHAR(5),
   pais VARCHAR(30),
   
-  id_client VARCHAR(9),
+  id_client VARCHAR(50),
   
   FOREIGN KEY(id_client) REFERENCES client(email)
 );

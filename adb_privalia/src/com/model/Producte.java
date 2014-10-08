@@ -1,17 +1,14 @@
 package com.model;
 
-/**
- *
- * @author maikel
- */
 public abstract class Producte {
-    private int id;
+
+    private int id_producte;
     private String nom;
     private String marca;
     private int num_articles;
-    
-    public Producte(){
-        
+
+    public Producte() {
+
     }
 
     public String getNom() {
@@ -39,12 +36,11 @@ public abstract class Producte {
     }
 
     public int getId() {
-        return id;
+        return id_producte;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id_producte = id;
     }
-    
-    
+
 }

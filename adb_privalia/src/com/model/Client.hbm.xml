@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="com.model.Client" table="client"/>
+    <class name="com.model.Client" table="client"/>
   
-  <id name="email" column="email">
-      <generator class="assigned"></generator>
-  </id>
+    <id name="email" column="email">
+        <generator class="assigned"></generator>
+    </id>
   
-  <property name="nom" column="nom"/>
-  <property name="cognom" column="cognom"/>
-  <property name="telefon" column="telefon"/>
-  <property name="import_total" column="import_total"/>
+    <property name="nom" column="NOM"/>
+    <property name="cognom" column="COGNOM"/>
+    <property name="telefon" column="TELEFON"/>
+    <property name="import_total" column="IMPORT_TOTAL"/>
  
-  <set name="dades_entrega" table="DADES_ENTREGA" lazy="true" cascade="all">
-      <key>
-          <column name="ID_CLIENT"/>
-      </key>
+    <set name="dades_entrega" table="DADES_ENTREGA" lazy="true" cascade="all">
+        <key>
+            <column name="ID_CLIENT"/>
+        </key>
       
-      <one-to-many class="com.model.Dades_entrega"/>
-  </set> 
+        <one-to-many class="com.model.Dades_entrega"/>
+    </set> 
   
-  <set name="linea_factura" table="LINEA_FACTURA" lazy="true" cascade="all">
-      <key>
-          <column name="ID_CLIENT"/>
-      </key>
+    <set name="linea_factura" table="LINEA_FACTURA" lazy="true" cascade="all">
+        <key>
+            <column name="ID_CLIENT"/>
+        </key>
       
-      <one-to-many class="com.model.Linea_factura"/>
-  </set>
+        <one-to-many class="com.model.Linea_factura"/>
+    </set>
 </hibernate-mapping>

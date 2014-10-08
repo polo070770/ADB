@@ -1,12 +1,18 @@
 package com.model;
 
+import java.util.Set;
+
 public class Subfamilia {
+
     private int id_subfamilia;
     private String nom;
+
     private Familia familia;
-    
-    public Subfamilia(){
-        
+
+    private Set<Article> articles;
+
+    public Subfamilia() {
+
     }
 
     public int getId_subfamilia() {
@@ -32,5 +38,13 @@ public class Subfamilia {
     public void setFamilia(Familia familia) {
         this.familia = familia;
     }
-    
+
+    public Set<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(Set<Article> articles) {
+        this.articles = articles;
+    }
+
 }

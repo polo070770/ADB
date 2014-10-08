@@ -1,22 +1,22 @@
 package com.model;
 
 import java.util.Date;
+import java.util.Set;
 
-/**
- *
- * @author maikel
- */
 public class Campanya {
+
     private int id_campanya;
-    private String nom;
+    private String nom_campanya;
     private String marca;
     private int num_articles;
     private float total_facturat;
     private Date data_inici;
     private Date data_fi;
-    
-    public Campanya(){
-        
+
+    private Set<Article> articles;
+
+    public Campanya() {
+
     }
 
     public int getId_campanya() {
@@ -28,11 +28,11 @@ public class Campanya {
     }
 
     public String getNom() {
-        return nom;
+        return nom_campanya;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNom(String nom_campanya) {
+        this.nom_campanya = nom_campanya;
     }
 
     public String getMarca() {
@@ -74,6 +74,21 @@ public class Campanya {
     public void setData_fi(Date data_fi) {
         this.data_fi = data_fi;
     }
-    
-    
+
+    public String getNom_campanya() {
+        return nom_campanya;
+    }
+
+    public void setNom_campanya(String nom_campanya) {
+        this.nom_campanya = nom_campanya;
+    }
+
+    public Set<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(Set<Article> articles) {
+        this.articles = articles;
+    }
+
 }

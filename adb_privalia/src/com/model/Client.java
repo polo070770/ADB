@@ -1,18 +1,21 @@
 package com.model;
 
-/**
- *
- * @author maikel
- */
+import java.util.Set;
+
 public class Client {
+
     private String email;
     private String nom;
     private String cognom;
     private String telefon;
+
     private float import_total;
-    
-    public Client(){
-        
+
+    private Set<Dades_entrega> dades_entrega;
+    private Set<Linea_factura> linea_factura;
+
+    public Client() {
+
     }
 
     public String getEmail() {
@@ -54,5 +57,21 @@ public class Client {
     public void setImport_total(float import_total) {
         this.import_total = import_total;
     }
-    
+
+    public Set<Dades_entrega> getDades_entrega() {
+        return dades_entrega;
+    }
+
+    public void setDades_entrega(Set<Dades_entrega> dades_entrega) {
+        this.dades_entrega = dades_entrega;
+    }
+
+    public Set<Linea_factura> getLinea_factura() {
+        return linea_factura;
+    }
+
+    public void setLinea_factura(Set<Linea_factura> linea_factura) {
+        this.linea_factura = linea_factura;
+    }
+
 }

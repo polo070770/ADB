@@ -1,18 +1,26 @@
 package com.model;
 
-/**
- *
- * @author maikel
- */
-public class Article extends Producte{
+public class Article extends Producte {
+
+    private int id_article;
     private float talla;
     private String color;
     private float preu;
-    private Producte producte;
+
     private Campanya campanya;
-    
-    public Article(){
-        
+    private Producte producte;
+    private Subfamilia subfamilia;
+
+    public Article() {
+
+    }
+
+    public int getId_article() {
+        return id_article;
+    }
+
+    public void setId_article(int id_article) {
+        this.id_article = id_article;
     }
 
     public float getTalla() {
@@ -54,4 +62,13 @@ public class Article extends Producte{
     public void setCampanya(Campanya campanya) {
         this.campanya = campanya;
     }
+
+    public Subfamilia getSubfamilia() {
+        return subfamilia;
+    }
+
+    public void setSubfamilia(Subfamilia subfamilia) {
+        this.subfamilia = subfamilia;
+    }
+
 }

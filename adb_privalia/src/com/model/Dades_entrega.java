@@ -1,19 +1,17 @@
 package com.model;
 
-/**
- *
- * @author maikel
- */
 public class Dades_entrega {
+
     private String carrer;
     private String poblacio;
     private String provincia;
     private String codi_postal;
     private String pais;
+
     private Client client;
-    
-    public Dades_entrega(){
-        
+
+    public Dades_entrega() {
+
     }
 
     public String getCarrer() {
@@ -63,6 +61,5 @@ public class Dades_entrega {
     public void setClient(Client client) {
         this.client = client;
     }
-    
-    
+
 }

@@ -1,16 +1,7 @@
 package com.vista;
 
-/**
- *
- * @author maikell
- */
 import java.util.Scanner;
 
-/**
- * Classe que gestiona totes les opcions del nostre menú reproductor.
- *
- * @author Maikel
- */
 public class Privalia {
 
     static private enum OpcionsMenuPrincipal {

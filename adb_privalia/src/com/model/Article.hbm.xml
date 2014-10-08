@@ -20,6 +20,7 @@
     </many-to-one>
     
     <many-to-one name="subfamilia" class="com.model.Subfamilia" fetch="join">
-        <column name="ID_SUBFAMILIA"/>
+        <column name="ID_SUBFAM"/>
     </many-to-one>
+    
 </hibernate-mapping>

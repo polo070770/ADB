@@ -1,12 +1,14 @@
 package com.model;
 
 public class Linea_factura {
+
     private int id_factura;
+
     private Client client;
     private Article article;
-    
-    public Linea_factura(){
-        
+
+    public Linea_factura() {
+
     }
 
     public int getId_factura() {
@@ -32,6 +34,5 @@ public class Linea_factura {
     public void setArticle(Article article) {
         this.article = article;
     }
-    
-    
+
 }

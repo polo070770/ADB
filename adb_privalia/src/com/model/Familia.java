@@ -1,11 +1,16 @@
 package com.model;
 
+import java.util.Set;
+
 public class Familia {
+
     private int id_familia;
     private String nom;
-    
-    public Familia(){
-        
+
+    private Set<Subfamilia> subfamilies;
+
+    public Familia() {
+
     }
 
     public int getId_familia() {
@@ -23,5 +28,13 @@ public class Familia {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    
+
+    public Set<Subfamilia> getSubfamilies() {
+        return subfamilies;
+    }
+
+    public void setSubfamilies(Set<Subfamilia> subfamilies) {
+        this.subfamilies = subfamilies;
+    }
+
 }
