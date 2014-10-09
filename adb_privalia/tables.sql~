@@ -82,8 +82,8 @@ CREATE TABLE client(
 CREATE TABLE dades_entrega(
 
   carrer VARCHAR(30),
-  ciudad VARCHAR(30),
-  comunidad VARCHAR(30),
+  poblacio VARCHAR(30),
+  provincia VARCHAR(30),
   codi_postal VARCHAR(5),
   pais VARCHAR(30),
   

@@ -7,11 +7,11 @@
         <generator class="increment"/>
     </id>
   
-    <many-to-one name="client" class="com.model.Client" fetch="select">
+    <many-to-one name="client" class="com.model.Client" fetch="join">
         <column name="ID_CLIENT"/>
     </many-to-one>
   
-    <one-to-one name="article" class="com.model.Article" fetch="select">
+    <one-to-one name="article" class="com.model.Article" fetch="join">
         <column name="ID_ARTICLE"/>
     </one-to-one>
   
