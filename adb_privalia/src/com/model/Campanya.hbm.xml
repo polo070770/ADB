@@ -14,7 +14,7 @@
     <property name="data_inici" column="DATA_INICI"/>
     <property name="data_fi" column="DATA_FI"/>
     
-    <set name="articles" table="ARTICLE" lazy="true" cascade="all">
+    <set name="articles" table="ARTICLE" lazy="false" cascade="all">
         <key>
             <column name="ID_CAMPANYA"/>
         </key>

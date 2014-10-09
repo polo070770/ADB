@@ -9,7 +9,7 @@
   
     <property name="nom" column="NOM"/>
     
-    <many-to-one name="familia" class="com.model.Familia" fetch="join">
+    <many-to-one name="familia" class="com.model.Familia" fetch="select">
         <column name="ID_FAM"/>
     </many-to-one>
     

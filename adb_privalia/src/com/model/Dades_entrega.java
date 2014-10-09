@@ -3,8 +3,8 @@ package com.model;
 public class Dades_entrega {
 
     private String carrer;
-    private String poblacio;
-    private String provincia;
+    private String ciutat;
+    private String comunitat;
     private String codi_postal;
     private String pais;
 
@@ -22,20 +22,20 @@ public class Dades_entrega {
         this.carrer = carrer;
     }
 
-    public String getPoblacio() {
-        return poblacio;
+    public String getCiutat() {
+        return ciutat;
     }
 
-    public void setPoblacio(String poblacio) {
-        this.poblacio = poblacio;
+    public void setCiutat(String ciutat) {
+        this.ciutat = ciutat;
     }
 
-    public String getProvincia() {
-        return provincia;
+    public String getComunitat() {
+        return comunitat;
     }
 
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
+    public void setComunitat(String comunitat) {
+        this.comunitat = comunitat;
     }
 
     public String getCodi_postal() {

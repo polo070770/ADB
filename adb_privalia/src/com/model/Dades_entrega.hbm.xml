@@ -4,12 +4,12 @@
     <class name="com.model.Dades_entrega" table="dades_entrega"/>
   
     <property name="carrer" column="CARRER"/>
-    <property name="poblacio" column="POBLACIO"/>
-    <property name="provincia" column="PROVINCIA"/>
+    <property name="ciutat" column="POBLACIO"/>
+    <property name="comunitat" column="PROVINCIA"/>
     <property name="codi_postal" column="CODI_POSTAL"/>
     <property name="pais" column="PAIS"/>
   
-    <many-to-one name="client" class="com.model.Client">
+    <many-to-one name="client" class="com.model.Client" fetch="join">
         <column name="ID_CLIENT"/>
     </many-to-one>
   

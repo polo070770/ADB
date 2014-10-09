@@ -12,7 +12,7 @@
     <property name="telefon" column="TELEFON"/>
     <property name="import_total" column="IMPORT_TOTAL"/>
  
-    <set name="dades_entrega" table="DADES_ENTREGA" lazy="true" cascade="all">
+    <set name="dades_entrega" table="DADES_ENTREGA" lazy="false" cascade="all">
         <key>
             <column name="ID_CLIENT"/>
         </key>
