@@ -87,3 +87,4 @@ CREATE TABLE dades_entrega(
 .import Campanya.csv campanya
 .import Client.csv client
 .import Dades_entrega.csv dades_entrega
+.import Linea_factura.csv linea_factura
