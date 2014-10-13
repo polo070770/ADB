@@ -35,12 +35,12 @@ public abstract class Producte {
         this.num_articles = num_articles;
     }
 
-    public int getId() {
+    public int getId_producte() {
         return id_producte;
     }
 
-    public void setId(int id) {
-        this.id_producte = id;
+    public void setId_producte(int id_producte) {
+        this.id_producte = id_producte;
     }
 
 }

@@ -45,10 +45,10 @@ CREATE TABLE article(
   
   id_subfam INTEGER,
   id_campanya INTEGER,  
-  id_producte INTEGER,
+  id_produc INTEGER,
   FOREIGN KEY(id_subfam) REFERENCES subfamilia(id_subfamilia),
   FOREIGN KEY(id_campanya) REFERENCES campanya(id_campanya),
-  FOREIGN KEY(id_producte) REFERENCES producte(id_producte)
+  FOREIGN KEY(id_produc) REFERENCES producte(id_producte)
 );
 
 CREATE TABLE linea_factura(

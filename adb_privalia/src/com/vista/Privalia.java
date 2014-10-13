@@ -327,12 +327,18 @@ public class Privalia {
                     // Mostrem un missatge indicant que s'ha triat aquesta opció
                     System.out.println("Has triat la opció 2");
 
-                    List<Linea_factura> listado = new ArrayList<Linea_factura>();
-                    Query q = session.createQuery("from Linea_factura");
+                    List<Article> listado = new ArrayList<Article>();
+                    Query q = session.createQuery("from Article");
                     listado = q.list();
 
-                    for (Linea_factura data : listado) {
-                        System.out.println(data.getArticle().getColor());
+                    for (Article data : listado) {
+                        System.out.println(data.getNom());
+                        System.out.println(data.getMarca());
+
+                        System.out.println(data.getColor());
+                        System.out.println(data.getTalla());
+                        System.out.println(data.getPreu());
+
                     }
 
                     break;
