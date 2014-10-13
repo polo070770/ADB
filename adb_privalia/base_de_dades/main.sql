@@ -57,7 +57,7 @@ CREATE TABLE linea_factura(
 	id_article INTEGER,
 
 	FOREIGN KEY(id_article) REFERENCES article(id_article),
-	FOREIGN KEY(id_client) REFERENCES client(id_client)
+	FOREIGN KEY(id_client) REFERENCES client(email)
 );
 
 CREATE TABLE client(
@@ -77,7 +77,7 @@ CREATE TABLE dades_entrega(
   pais VARCHAR(30),
   
   id_client INTEGER,
-  FOREIGN KEY(id_client) REFERENCES client(id_client)
+  FOREIGN KEY(id_client) REFERENCES client(email)
 );
 
 .separator ";"

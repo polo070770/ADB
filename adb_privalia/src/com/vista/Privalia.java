@@ -1,8 +1,13 @@
 package com.vista;
 
 import com.controlador.Controller;
+import com.model.Article;
+import com.model.Campanya;
 import com.model.Client;
 import com.model.Dades_entrega;
+import com.model.Familia;
+import com.model.Linea_factura;
+import com.model.Subfamilia;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -321,15 +326,13 @@ public class Privalia {
                 case MENU_S5_READ:
                     // Mostrem un missatge indicant que s'ha triat aquesta opció
                     System.out.println("Has triat la opció 2");
-                    List<Client> listado = new ArrayList<Client>();
-                    Query q = session.createQuery("from Client");
+
+                    List<Linea_factura> listado = new ArrayList<Linea_factura>();
+                    Query q = session.createQuery("from Linea_factura");
                     listado = q.list();
 
-                    for (Client client : listado) {
-
-                        for (Dades_entrega data : client.getDades_entrega()) {
-                            System.out.println(data.getCiutat());
-                        }
+                    for (Linea_factura data : listado) {
+                        System.out.println(data.getArticle().getColor());
                     }
 
                     break;
