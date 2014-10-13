@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.model.Familia" table="familia"/>
+    <class name="com.model.Familia" table="familia">
   
-    <id name="id_familia" column="ID_FAMILIA">
-        <generator class="increment"/>
-    </id>
+        <id name="id_familia" column="ID_FAMILIA">
+            <generator class="increment"/>
+        </id>
   
-    <property name="nom" column="NOM"/>
+        <property name="nom" column="NOM"/>
     
-    <set name="subfamilies" table="SUBFAMILIA" lazy="true" cascade="all">
-        <key>
-            <column name="ID_FAM"/>
-        </key>
+        <set name="subfamilies" table="SUBFAMILIA" lazy="true" cascade="all">
+            <key>
+                <column name="ID_FAM"/>
+            </key>
       
-        <one-to-many class="com.model.Familia"/>
-    </set>
+            <one-to-many class="com.model.Familia"/>
+        </set>
+    
+    </class>
   
 </hibernate-mapping>

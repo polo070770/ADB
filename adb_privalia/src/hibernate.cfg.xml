@@ -4,8 +4,8 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.SQLiteDialect</property>
         <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
-        <!--<property name="hibernate.connection.url">jdbc:sqlite:\\C:\Users\maikell\Documents\GitHub\ADB\adb_privalia\privalia_db.db</property>-->
-        <property name="hibernate.connection.url">jdbc:sqlite:/home/dquitata12.alumnes/NetBeansProjects/ADB/adb_privalia/privalia_db.db</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:\\C:\Users\maikell\Documents\GitHub\ADB\adb_privalia\base_de_dades\privalia_db.db</property>
+        <!--<property name="hibernate.connection.url">jdbc:sqlite:/home/dquitata12.alumnes/NetBeansProjects/ADB/adb_privalia/base_de_dades/privalia_db.db</property>-->
         <!-- Definimos propiedades de Hibernate para SQL -->
         <property name="show_sql">false</property>
         <property name="format_sql">true</property>
@@ -17,8 +17,8 @@
         <mapping resource="com/model/Campanya.hbm.xml"/>
         <mapping resource="com/model/Client.hbm.xml"/>
         <mapping resource="com/model/Dades_entrega.hbm.xml"/>
-        <mapping resource="com/model/Linea_factura.hbm.xml"/>
-        <mapping resource="com/model/Subfamilia.hbm.xml"/>
         <mapping resource="com/model/Familia.hbm.xml"/>
+        <mapping resource="com/model/Linea_factura.hbm.xml"/>
+        <mapping resource="com/model/Subfamilia.hbm.xml"/>  
     </session-factory>
 </hibernate-configuration>

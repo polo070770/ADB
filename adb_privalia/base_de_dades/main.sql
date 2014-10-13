@@ -61,8 +61,7 @@ CREATE TABLE linea_factura(
 );
 
 CREATE TABLE client(
-	id_client INTEGER PRIMARY KEY NOT NULL,
-	email VARCHAR(50) NOT NULL,
+	email VARCHAR(50) PRIMARY KEY NOT NULL,
 	nom VARCHAR(20) NOT NULL,
 	cognom VARCHAR(50) NOT NULL,
 	telefon VARCHAR(9),
@@ -70,9 +69,10 @@ CREATE TABLE client(
 );
 
 CREATE TABLE dades_entrega(
+  id_dades_entrega INTEGER,
   carrer VARCHAR(30),
-  ciudad VARCHAR(30),
-  comunidad VARCHAR(30),
+  ciutat VARCHAR(30),
+  comunitat VARCHAR(30),
   codi_postal VARCHAR(5),
   pais VARCHAR(30),
   
@@ -80,6 +80,7 @@ CREATE TABLE dades_entrega(
   FOREIGN KEY(id_client) REFERENCES client(id_client)
 );
 
+.separator ";"
 .import Familia.csv familia
 .import Subfamilia.csv subfamilia
 .import Producte.csv producte

@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.model.Linea_factura" table="linea_factura"/>
+    <class name="com.model.Linea_factura" table="LINEA_FACTURA">
   
-    <id name="id_factura" column="ID_FACTURA">
-        <generator class="increment"/>
-    </id>
+        <id name="id_factura" column="ID_FACTURA">
+            <generator class="increment"/>
+        </id>
   
-    <many-to-one name="client" class="com.model.Client" fetch="join">
-        <column name="ID_CLIENT"/>
-    </many-to-one>
+        <many-to-one name="client" class="com.model.Client" fetch="join">
+            <column name="ID_CLIENT"/>
+        </many-to-one>
   
-    <one-to-one name="article" class="com.model.Article" fetch="join">
-        <column name="ID_ARTICLE"/>
-    </one-to-one>
+        <many-to-one name="article" class="com.model.Article" fetch="join">
+            <column name="ID_ARTICLE"/>
+        </many-to-one>
+    
+    </class>
   
 </hibernate-mapping>

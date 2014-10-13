@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.model.Dades_entrega" table="dades_entrega"/>
+    <class name="com.model.Dades_entrega" table="DADES_ENTREGA">
+        
+        <id name="id_dades_entrega" column="ID_DADES_ENTREGA">
+            <generator class="assigned"></generator>
+        </id>
+
+        <property name="carrer" column="CARRER"/>
+        <property name="ciutat" column="CIUTAT"/>
+        <property name="comunitat" column="COMUNITAT"/>
+        <property name="codi_postal" column="CODI_POSTAL"/>
+        <property name="pais" column="PAIS"/>
   
-    <property name="carrer" column="CARRER"/>
-    <property name="ciutat" column="POBLACIO"/>
-    <property name="comunitat" column="PROVINCIA"/>
-    <property name="codi_postal" column="CODI_POSTAL"/>
-    <property name="pais" column="PAIS"/>
+        <many-to-one name="client" class="com.model.Client" fetch="join">
+            <column name="ID_CLIENT"/>
+        </many-to-one>
   
-    <many-to-one name="client" class="com.model.Client" fetch="join">
-        <column name="ID_CLIENT"/>
-    </many-to-one>
-  
+    </class>
   
 </hibernate-mapping>

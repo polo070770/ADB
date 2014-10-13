@@ -2,6 +2,7 @@ package com.model;
 
 public class Dades_entrega {
 
+    private int id_dades_entrega;
     private String carrer;
     private String ciutat;
     private String comunitat;
@@ -12,6 +13,14 @@ public class Dades_entrega {
 
     public Dades_entrega() {
 
+    }
+
+    public int getId_dades_entrega() {
+        return id_dades_entrega;
+    }
+
+    public void setId_dades_entrega(int id_dades_entrega) {
+        this.id_dades_entrega = id_dades_entrega;
     }
 
     public String getCarrer() {
