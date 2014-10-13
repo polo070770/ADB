@@ -26,8 +26,8 @@ CREATE TABLE campanya(
 	marca VARCHAR(20),
 	num_articles INTEGER,
 	total_facturat FLOAT,
-  	data_inici DATE NOT NULL,
-  	data_fi DATE NOT NULL
+  data_inici DATE NOT NULL,
+  data_fi DATE NOT NULL
 );
 
 CREATE TABLE producte(
@@ -79,3 +79,11 @@ CREATE TABLE dades_entrega(
   id_client INTEGER,
   FOREIGN KEY(id_client) REFERENCES client(id_client)
 );
+
+.import Familia.csv familia
+.import Subfamilia.csv subfamilia
+.import Producte.csv producte
+.import Article.csv article
+.import Campanya.csv campanya
+.import Client.csv client
+.import Dades_entrega.csv dades_entrega
