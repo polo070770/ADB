@@ -9,7 +9,6 @@ import com.model.Familia;
 import com.model.Linea_factura;
 import com.model.Producte;
 import com.model.Subfamilia;
-import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -691,13 +690,13 @@ public class Privalia {
         int quantitat = sc.nextInt();
 
         System.out.println("\n-Quina talla?");
-        float talla = sc.nextFloat();
+        double talla = sc.nextDouble();
 
         System.out.println("\n-Quin color?");
         String color = sc.next();
 
         System.out.println("\n-Quin preu?");
-        float preu = sc.nextFloat();
+        double preu = sc.nextFloat();
 
         readSubfamilia(sc);
         System.out.println("\n-A quina subfamilia pertany? (introdueix id)");
@@ -739,7 +738,7 @@ public class Privalia {
         System.out.println("id\ttalla\tcolor\tpreu");
         System.out.println("-----------------------------");
         for (Article a : listado) {
-            System.out.println(a.getId_article()
+            System.out.println(a.getProducte().getId_producte()
                     + "\t" + a.getTalla() + "\t"
                     + a.getColor() + "\t" + a.getPreu());
         }

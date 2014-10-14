@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 public class Article extends Producte {
 
     private int id_article;
-    private float talla;
+    private double talla;
     private String color;
-    private float preu;
+    private double preu;
 
     private Campanya campanya;
     private Producte producte;
@@ -25,11 +25,11 @@ public class Article extends Producte {
         this.id_article = id_article;
     }
 
-    public float getTalla() {
+    public double getTalla() {
         return talla;
     }
 
-    public void setTalla(float talla) {
+    public void setTalla(double talla) {
         this.talla = talla;
     }
 
@@ -41,11 +41,11 @@ public class Article extends Producte {
         this.color = color;
     }
 
-    public float getPreu() {
+    public double getPreu() {
         return preu;
     }
 
-    public void setPreu(float preu) {
+    public void setPreu(double preu) {
         this.preu = preu;
     }
 
