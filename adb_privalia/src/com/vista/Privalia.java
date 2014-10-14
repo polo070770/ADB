@@ -1,13 +1,11 @@
 package com.vista;
 
-import com.controlador.Controller;
 import com.model.Article;
 import com.model.Campanya;
 import com.model.Client;
 import com.model.Dades_entrega;
 import com.model.Familia;
 import com.model.Linea_factura;
-import com.model.Producte;
 import com.model.Subfamilia;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -20,7 +18,6 @@ import org.hibernate.Transaction;
 
 public class Privalia {
 
-    private Controller ctrl;
     private Session session = null;
 
     static private enum OpcionsMenuPrincipal {
@@ -80,9 +77,10 @@ public class Privalia {
     static private String[] descSubMenu7 = {"Create", "Read",
         "Update", "Delete", "Tornar al menú anterior"};
 
-    public Privalia() {
+    private static final String user = "admin";
+    private static final String pass = "admin";
 
-        ctrl = new Controller();
+    public Privalia() {
 
         try {
 
@@ -99,10 +97,32 @@ public class Privalia {
 
         Scanner sc = new Scanner(System.in);
 
-        Privalia priv = new Privalia();
+        if (gestioLogin(sc)) {
+            Privalia priv = new Privalia();
 
-        priv.gestioMenuPrincipal(sc);
+            priv.gestioMenuPrincipal(sc);
+        }
 
+    }
+
+    private static boolean gestioLogin(Scanner sc) {
+
+        boolean validate = false;
+
+        String u, p;
+
+        System.out.println("LOGIN");
+        System.out.println("-----");
+        System.out.print("User: ");
+        u = sc.next();
+        System.out.print("Pass: ");
+        p = sc.next();
+
+        if (u.equalsIgnoreCase(user) && p.equalsIgnoreCase(pass)) {
+            validate = true;
+        }
+
+        return validate;
     }
 
     private void gestioMenuPrincipal(Scanner sc) {
@@ -639,10 +659,12 @@ public class Privalia {
         Query q = session.createQuery("from Campanya");
         listado = q.list();
 
-        System.out.println("id_campanya\tnom_campanya");
+        System.out.println("id_campanya\tnom_campanya\tmarca\tdata_i\t\t\tdata_f");
         System.out.println("-----------------------------");
         for (Campanya c : listado) {
-            System.out.println(c.getId_campanya() + "\t\t" + c.getNom());
+            System.out.println(c.getId_campanya() + "\t\t" + c.getNom()
+                    + "\t" + c.getMarca() + "\t" + c.getData_inici() + "\t" + c.getData_fi()
+            );
         }
         tx.commit();
 
@@ -736,11 +758,13 @@ public class Privalia {
         Query q = session.createQuery("from Article");
         listado = q.list();
 
-        System.out.println("id\ttalla\tcolor\tpreu");
+        System.out.println("id\ttalla\tcolor\t\tpreu\t\tnom\t\tmarca");
         System.out.println("-----------------------------");
         for (Article a : listado) {
             System.out.println(a.getId_article() + "\t" + a.getTalla() + "\t"
-                    + a.getColor() + "\t" + a.getPreu());
+                    + a.getColor() + "\t\t" + a.getPreu()
+                    + "\t\t" + a.getProducte().getNom()
+                    + "\t\t" + a.getProducte().getMarca());
         }
         tx.commit();
 
@@ -814,7 +838,7 @@ public class Privalia {
         Query q = session.createQuery("from Client");
         listado = q.list();
 
-        System.out.println("id\temail\tnom\tcognom\ttelefon");
+        System.out.println("email\t\t\tnom\tcognom\ttelefon");
         System.out.println("-----------------------------");
         for (Client c : listado) {
             System.out.println(c.getEmail() + "\t" + c.getNom() + "\t"
@@ -901,11 +925,13 @@ public class Privalia {
         Query q = session.createQuery("from Dades_entrega");
         listado = q.list();
 
-        System.out.println("id\tciutat\tpais");
+        System.out.println("id\tcarrer\t\t\tciutat\t\tcomunitat\tcodi_postal\tpais");
         System.out.println("-----------------------------");
         for (Dades_entrega d : listado) {
-            System.out.println(d.getId_dades_entrega() + "\t" + d.getCiutat()
-                    + "\t" + d.getPais());;
+            System.out.println(d.getId_dades_entrega()
+                    + "\t" + d.getCarrer() + "\t\t" + d.getCiutat()
+                    + "\t" + d.getComunitat()
+                    + "\t\t" + d.getCodi_postal() + "\t" + d.getPais());
         }
         tx.commit();
 
