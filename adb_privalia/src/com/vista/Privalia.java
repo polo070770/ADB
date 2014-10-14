@@ -954,7 +954,7 @@ public class Privalia {
 
         readArticle(sc);
         System.out.println("Quin article ha comprat? (Introdueix l'id) ");
-        String id_1 = sc.next();
+        int id_1 = sc.nextInt();
         Article a = (Article) session.get(Article.class, id_1);
 
         Transaction tx = session.beginTransaction();
