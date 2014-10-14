@@ -39,9 +39,9 @@ CREATE TABLE producte(
 
 CREATE TABLE article(
   id_article INTEGER PRIMARY KEY NOT NULL,
-  talla FLOAT,
+  talla REAL,
   color VARCHAR(20),
-  preu FLOAT,
+  preu REAL,
   
   id_subfam INTEGER,
   id_campanya INTEGER,  
@@ -65,11 +65,11 @@ CREATE TABLE client(
 	nom VARCHAR(20) NOT NULL,
 	cognom VARCHAR(50) NOT NULL,
 	telefon VARCHAR(9),
-	import_total FLOAT
+	import_total REAL
 );
 
 CREATE TABLE dades_entrega(
-  id_dades_entrega INTEGER,
+  id_dades_entrega INTEGER PRIMARY KEY NOT NULL,
   carrer VARCHAR(30),
   ciutat VARCHAR(30),
   comunitat VARCHAR(30),

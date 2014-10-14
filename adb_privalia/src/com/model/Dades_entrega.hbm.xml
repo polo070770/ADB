@@ -4,7 +4,7 @@
     <class name="com.model.Dades_entrega" table="DADES_ENTREGA">
         
         <id name="id_dades_entrega" column="ID_DADES_ENTREGA">
-            <generator class="assigned"></generator>
+            <generator class="identity"></generator>
         </id>
 
         <property name="carrer" column="CARRER"/>

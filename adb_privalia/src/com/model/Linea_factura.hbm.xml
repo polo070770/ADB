@@ -4,7 +4,7 @@
     <class name="com.model.Linea_factura" table="LINEA_FACTURA">
   
         <id name="id_factura" column="ID_FACTURA">
-            <generator class="increment"/>
+            <generator class="identity"/>
         </id>
   
         <many-to-one name="client" class="com.model.Client" fetch="join">

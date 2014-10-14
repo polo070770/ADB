@@ -11,9 +11,10 @@
         <property name="marca" column="MARCA"/>
         <property name="num_articles" column="NUM_ARTICLES"/>
         
-        <joined-subclass name="com.model.Article" table="ARTICLE" extends="Producte">
+        <joined-subclass name="com.model.Article" table="ARTICLE">
             <key column="ID_PRODUC"/>
             
+            <!--<property name="id_article" column="ID_ARTICLE"/>-->
             <property name="talla" column="TALLA"/>
             <property name="color" column="COLOR"/>
             <property name="preu" column="PREU"/>

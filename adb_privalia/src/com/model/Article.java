@@ -1,5 +1,7 @@
 package com.model;
 
+import java.math.BigDecimal;
+
 public class Article extends Producte {
 
     private int id_article;

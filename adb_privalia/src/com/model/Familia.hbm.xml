@@ -4,7 +4,7 @@
     <class name="com.model.Familia" table="familia">
   
         <id name="id_familia" column="ID_FAMILIA">
-            <generator class="increment"/>
+            <generator class="identity"/>
         </id>
   
         <property name="nom" column="NOM"/>
@@ -14,7 +14,7 @@
                 <column name="ID_FAM"/>
             </key>
       
-            <one-to-many class="com.model.Familia"/>
+            <one-to-many class="com.model.Subfamilia"/>
         </set>
     
     </class>

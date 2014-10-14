@@ -4,7 +4,7 @@
     <class name="com.model.Campanya" table="campanya">
   
         <id name="id_campanya" column="ID_CAMPANYA">
-            <generator class="increment"/>
+            <generator class="identity"/>
         </id>
   
         <property name="nom_campanya" column="NOM_CAMPANYA"/>
