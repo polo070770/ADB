@@ -1,11 +1,15 @@
 package com.model;
 
-public abstract class Producte {
+import java.util.Set;
+
+public class Producte {
 
     private int id_producte;
     private String nom;
     private String marca;
     private int num_articles;
+
+    private Set<Article> articles;
 
     public Producte() {
 
@@ -41,6 +45,14 @@ public abstract class Producte {
 
     public void setId_producte(int id_producte) {
         this.id_producte = id_producte;
+    }
+
+    public Set<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(Set<Article> articles) {
+        this.articles = articles;
     }
 
 }

@@ -10,23 +10,14 @@
         <property name="nom" column="NOM"/>
         <property name="marca" column="MARCA"/>
         <property name="num_articles" column="NUM_ARTICLES"/>
-        
-        <joined-subclass name="com.model.Article" table="ARTICLE">
-            <key column="ID_PRODUC"/>
 
-            <property name="talla" column="TALLA"/>
-            <property name="color" column="COLOR"/>
-            <property name="preu" column="PREU"/>
-            
-            <many-to-one name="campanya" class="com.model.Campanya" fetch="select">
-                <column name="ID_CAMPANYA"/>
-            </many-to-one>
-            
-            <many-to-one name="subfamilia" class="com.model.Subfamilia" fetch="select">
-                <column name="ID_SUBFAM"/>
-            </many-to-one>
-            
-        </joined-subclass>
+        <set name="articles" table="ARTICLE" lazy="true" cascade="all">
+            <key>
+                <column name="ID_PRODUC"/>
+            </key>
+      
+            <one-to-many class="com.model.Article"/>
+        </set>
            
     </class>
 </hibernate-mapping>

@@ -4,7 +4,7 @@
     <class name="com.model.Client" table="client">
   
         <id name="email" column="EMAIL">
-            <generator class="assigned"></generator>
+            <generator class="assigned"/>
         </id>
   
         <property name="nom" column="NOM"/>

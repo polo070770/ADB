@@ -436,18 +436,22 @@ public class Privalia {
                 case MENU_S7_CREATE:
                     // Mostrem un missatge indicant que s'ha triat aquesta opció
                     System.out.println("Has triat la opció 1");
+                    createLineaFactura(sc);
                     break;
                 case MENU_S7_READ:
                     // Mostrem un missatge indicant que s'ha triat aquesta opció
                     System.out.println("Has triat la opció 2");
+                    readLineaFactura(sc);
                     break;
                 case MENU_S7_UPDATE:
                     // Mostrem un missatge indicant que s'ha triat aquesta opció
                     System.out.println("Has triat la opció 3");
+                    updateLineaFactura(sc);
                     break;
                 case MENU_S7_DELETE:
                     // Mostrem un missatge indicant que s'ha triat aquesta opció
                     System.out.println("Has triat la opció 4");
+                    deleteLineaFactura(sc);
                     break;
                 case MENU_S7_SORTIR:
                     System.out.println("Fins aviat!");
@@ -711,9 +715,6 @@ public class Privalia {
         Transaction tx = session.beginTransaction();
 
         Article a = new Article();
-        a.setNom(nom);
-        a.setMarca(marca);
-        a.setNum_articles(quantitat);
         a.setTalla(talla);
         a.setColor(color);
         a.setPreu(preu);
@@ -738,8 +739,7 @@ public class Privalia {
         System.out.println("id\ttalla\tcolor\tpreu");
         System.out.println("-----------------------------");
         for (Article a : listado) {
-            System.out.println(a.getProducte().getId_producte()
-                    + "\t" + a.getTalla() + "\t"
+            System.out.println(a.getId_article() + "\t" + a.getTalla() + "\t"
                     + a.getColor() + "\t" + a.getPreu());
         }
         tx.commit();
@@ -941,6 +941,101 @@ public class Privalia {
 
         Dades_entrega d = (Dades_entrega) session.get(Dades_entrega.class, id);
         session.delete(d);
+        tx.commit();
+
+    }
+
+    private void createLineaFactura(Scanner sc) {
+
+        readClient(sc);
+        System.out.println("Quin client ha comprat? (Introduiex l'id) ");
+        String id = sc.next();
+        Client c = (Client) session.get(Client.class, id);
+
+        readArticle(sc);
+        System.out.println("Quin article ha comprat? (Introdueix l'id) ");
+        String id_1 = sc.next();
+        Article a = (Article) session.get(Article.class, id_1);
+
+        Transaction tx = session.beginTransaction();
+
+        Linea_factura lf = new Linea_factura();
+        lf.setArticle(a);
+        lf.setClient(c);
+
+        session.save(lf);
+        tx.commit();
+
+    }
+
+    private void readLineaFactura(Scanner sc) {
+
+        Transaction tx = session.beginTransaction();
+
+        System.out.println("\nRegistres de Linea factura: ");
+
+        List<Linea_factura> listado = new ArrayList<Linea_factura>();
+        Query q = session.createQuery("from Linea_factura");
+        listado = q.list();
+
+        System.out.println("id\tclient\t\tarticle");
+        System.out.println("-----------------------------");
+        for (Linea_factura lf : listado) {
+
+            System.out.println(lf.getId_factura() + "\t\t"
+                    + lf.getClient().getNom() + "\t\t"
+                    + lf.getArticle().getProducte().getNom());
+        }
+        tx.commit();
+
+    }
+
+    private void updateLineaFactura(Scanner sc) {
+
+        readLineaFactura(sc);
+
+        System.out.println("\nQuina linea factura vols actualitzar? (inserta id)");
+        int id = sc.nextInt();
+
+        Linea_factura d = (Linea_factura) session.get(Linea_factura.class, id);
+
+        System.out.println("\nQue vols actualitzar? (client=0 / article=1)");
+        int to_updt = sc.nextInt();
+        if (to_updt == 0) {
+
+            readClient(sc);
+            System.out.println("Quin client ha comprat? (Introduiex l'id) ");
+            String id_1 = sc.next();
+            Client c = (Client) session.get(Client.class, id_1);
+            d.setClient(c);
+
+        } else if (to_updt == 1) {
+
+            readArticle(sc);
+            System.out.println("Quin article ha comprat? (Introdueix l'id) ");
+            int id_1 = sc.nextInt();
+            Article a = (Article) session.get(Article.class, id_1);
+            d.setArticle(a);
+
+        }
+
+        Transaction tx = session.beginTransaction();
+        session.update(d);
+        tx.commit();
+
+    }
+
+    private void deleteLineaFactura(Scanner sc) {
+
+        readLineaFactura(sc);
+
+        Transaction tx = session.beginTransaction();
+
+        System.out.println("\nQuina linea factura vols eliminar? (inserta id)");
+        int id = sc.nextInt();
+
+        Linea_factura lf = (Linea_factura) session.get(Linea_factura.class, id);
+        session.delete(lf);
         tx.commit();
 
     }

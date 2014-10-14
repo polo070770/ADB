@@ -53,7 +53,7 @@ CREATE TABLE article(
 
 CREATE TABLE linea_factura(
 	id_factura INTEGER PRIMARY KEY NOT NULL,
-	id_client INTEGER,
+	id_client VARCHAR(50),
 	id_article INTEGER,
 
 	FOREIGN KEY(id_article) REFERENCES article(id_article),
@@ -76,7 +76,7 @@ CREATE TABLE dades_entrega(
   codi_postal VARCHAR(5),
   pais VARCHAR(30),
   
-  id_client INTEGER,
+  id_client VARCHAR(50),
   FOREIGN KEY(id_client) REFERENCES client(email)
 );
 

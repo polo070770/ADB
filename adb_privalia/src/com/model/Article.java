@@ -1,8 +1,8 @@
 package com.model;
 
-import java.math.BigDecimal;
+import java.util.Set;
 
-public class Article extends Producte {
+public class Article {
 
     private int id_article;
     private double talla;
@@ -12,6 +12,8 @@ public class Article extends Producte {
     private Campanya campanya;
     private Producte producte;
     private Subfamilia subfamilia;
+
+    private Set<Linea_factura> linea_factura;
 
     public Article() {
 
@@ -71,6 +73,14 @@ public class Article extends Producte {
 
     public void setSubfamilia(Subfamilia subfamilia) {
         this.subfamilia = subfamilia;
+    }
+
+    public Set<Linea_factura> getLinea_factura() {
+        return linea_factura;
+    }
+
+    public void setLinea_factura(Set<Linea_factura> linea_factura) {
+        this.linea_factura = linea_factura;
     }
 
 }
