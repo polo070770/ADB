@@ -101,6 +101,8 @@ public class Privalia {
             Privalia priv = new Privalia();
 
             priv.gestioMenuPrincipal(sc);
+        } else {
+            System.out.println("Torna-ho a intentar!");
         }
 
     }
