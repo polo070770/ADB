@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.model.Producte" table="PRODUCTE">
+        
+        <id name="id_producte" column="ID_PRODUCTE">
+            <generator class="identity"/>
+        </id>
+        
+        <property name="nom" column="NOM"/>
+        <property name="marca" column="MARCA"/>
+        <property name="num_articles" column="NUM_ARTICLES"/>
+
+        <set name="articles" table="ARTICLE" lazy="true" cascade="all">
+            <key>
+                <column name="ID_PRODUC"/>
+            </key>
+      
+            <one-to-many class="com.model.Article"/>
+        </set>
+           
+    </class>
+</hibernate-mapping>
+

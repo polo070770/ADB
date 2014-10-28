@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.model.Campanya" table="campanya">
+  
+        <id name="id_campanya" column="ID_CAMPANYA">
+            <generator class="identity"/>
+        </id>
+  
+        <property name="nom_campanya" column="NOM_CAMPANYA"/>
+        <property name="marca" column="MARCA"/>
+        <property name="num_articles" column="NUM_ARTICLES"/>
+        <property name="total_facturat" column="TOTAL_FACTURAT"/>
+        <property name="data_inici" column="DATA_INICI"/>
+        <property name="data_fi" column="DATA_FI"/>
+    
+        <set name="articles" table="ARTICLE" lazy="false" cascade="all">
+            <key>
+                <column name="ID_CAMPANYA"/>
+            </key>
+      
+            <one-to-many class="com.model.Article"/>
+        </set>
+  
+    </class>
+  
+</hibernate-mapping>

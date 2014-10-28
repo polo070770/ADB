@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.model.Article" table="ARTICLE"> 
+    
+        <id name="id_article" column="ID_ARTICLE">
+            <generator class="identity"/>
+        </id>      
+  
+        <property name="talla" column="TALLA"/>
+        <property name="color" column="COLOR"/>
+        <property name="preu" column="PREU"/>
+        
+        <set name="linea_factura" table="LINEA_FACTURA" lazy="true" cascade="all">
+            <key>
+                <column name="ID_ARTICLE"/>
+            </key>
+      
+            <one-to-many class="com.model.Linea_factura"/>
+        </set>
+        
+            
+        <many-to-one name="campanya" class="com.model.Campanya" fetch="select">
+            <column name="ID_CAMPANYA"/>
+        </many-to-one>
+            
+        <many-to-one name="subfamilia" class="com.model.Subfamilia" fetch="select">
+            <column name="ID_SUBFAM"/>
+        </many-to-one>
+        
+        <many-to-one name="producte" class="com.model.Producte" fetch="select">
+            <column name="ID_PRODUC"/>
+        </many-to-one>
+  
+    </class>
+  
+</hibernate-mapping>
