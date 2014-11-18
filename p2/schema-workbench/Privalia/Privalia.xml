@@ -1,0 +1,18 @@
+<Schema name="Privalia" description="Moda_UB">
+  <Cube name="Ventas" visible="true" description="Ventas_de_privalia" cache="true" enabled="true">
+    <Table name="Table" schema="venta_hecho">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" name="Producto">
+    </Dimension>
+    <Measure name="num_ventas" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="num_devoluciones" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="importe" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="impuestos" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="coste_venta" aggregator="distinct-count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

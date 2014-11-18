@@ -1,0 +1,36 @@
+<Schema name="Privalia" description="Moda_UB">
+  <Cube name="Ventas" visible="true" cache="true" enabled="true">
+    <Table name="ventas" schema="public">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="producto_id" name="producto">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Productos" primaryKey="id_producto" defaultMember="[Todos los Productos]">
+        <Table name="producto" schema="public" alias="">
+        </Table>
+        <Level name="producto marca" visible="true" column="marca" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="producto nombre" visible="true" column="nombre" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="cliente_id" name="cliente">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Clientes" primaryKey="id_cliente" defaultMember="[Todos los Clientes]">
+        <Table name="cliente" schema="public" alias="">
+        </Table>
+        <Level name="cliente nombre" visible="true" column="nombre" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="cliente edad" visible="true" column="edad" type="Integer" uniqueMembers="true" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="num_ventas" column="num_ventas" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="num_devoluciones" column="num_devoluciones" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="importe" column="importe" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="impuestos" column="impuestos" aggregator="distinct-count" visible="true">
+    </Measure>
+    <Measure name="coste_venta" column="coste_venta" aggregator="distinct-count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
