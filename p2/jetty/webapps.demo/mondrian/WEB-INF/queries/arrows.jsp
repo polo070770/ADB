@@ -13,8 +13,8 @@ jdbcUrl="jdbc:postgresql://postgres.mat.ub.edu/dquitata12"
 catalogUri="/WEB-INF/queries/Privalia.xml"
 jdbcUser="dquitata12_adm" jdbcPassword="curs1415" connectionPooling="false">
 
-select {[Measures].[importe]} ON columns,
-  {[Producto].[Todos los Productos]} ON rows
+select {[Measures].[importe], [Measures].impuestos} ON columns,
+  {([Producto].[Todos los Productos],[Cliente].[Todos los Clientes])} ON rows
 from [Ventas]
 </jp:mondrianQuery>
 

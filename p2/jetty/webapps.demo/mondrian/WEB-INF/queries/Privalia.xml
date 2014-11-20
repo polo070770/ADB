@@ -1,10 +1,22 @@
 <Schema name="Privalia" description="Moda_UB">
+  <Dimension type="TimeDimension" visible="true" name="Fecha">
+    <Hierarchy visible="true" hasAll="true" primaryKey="id_fecha">
+      <Table name="fecha" schema="public" alias="">
+      </Table>
+      <Level name="fecha ano" visible="true" column="ano" type="Integer" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="fecha mes" visible="true" column="mes" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+      <Level name="fecha dia" visible="true" column="dia" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
   <Cube name="Ventas" visible="true" cache="true" enabled="true">
     <Table name="ventas" schema="public">
     </Table>
-    <Dimension type="StandardDimension" visible="true" foreignKey="producto_id" name="producto">
+    <Dimension type="StandardDimension" visible="true" foreignKey="producto_id" highCardinality="false" name="producto">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Productos" primaryKey="id_producto" defaultMember="[Todos los Productos]">
-        <Table name="producto" schema="public" alias="">
+        <Table name="producto" schema="public">
         </Table>
         <Level name="producto marca" visible="true" column="marca" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
@@ -12,16 +24,18 @@
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="cliente_id" name="cliente">
+    <Dimension type="StandardDimension" visible="true" foreignKey="cliente_id" highCardinality="false" name="cliente">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Clientes" primaryKey="id_cliente" defaultMember="[Todos los Clientes]">
-        <Table name="cliente" schema="public" alias="">
+        <Table name="cliente" schema="public">
         </Table>
         <Level name="cliente nombre" visible="true" column="nombre" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="cliente edad" visible="true" column="edad" type="Integer" uniqueMembers="true" levelType="Regular">
+        <Level name="cliente edad" visible="true" column="edad" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
+    <DimensionUsage source="Fecha" name="Fecha" visible="true" foreignKey="fecha_id">
+    </DimensionUsage>
     <Measure name="num_ventas" column="num_ventas" aggregator="distinct-count" visible="true">
     </Measure>
     <Measure name="num_devoluciones" column="num_devoluciones" aggregator="distinct-count" visible="true">

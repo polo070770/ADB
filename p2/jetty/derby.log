@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-2014-11-18 19:06:48.891 GMT:
- Booting Derby version The Apache Software Foundation - Apache Derby - 10.2.2.0 - (485682): instance c013800d-0149-c44c-d093-00000c303df0
+2014-11-19 23:56:14.592 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.2.2.0 - (485682): instance c013800d-0149-ca7c-2582-000005a83b98
 on database directory classpath:/foodmart in READ ONLY mode 
 
 Database Class Loader started - derby.database.classpath=''
