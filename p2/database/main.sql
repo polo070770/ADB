@@ -1,7 +1,9 @@
 ﻿DROP TABLE IF EXISTS cliente CASCADE;
 DROP TABLE IF EXISTS producto CASCADE;
-DROP TABLE IF EXISTS ventas CASCADE;
 DROP TABLE IF EXISTS fecha CASCADE;
+DROP TABLE IF EXISTS geografia CASCADE;
+DROP TABLE IF EXISTS tienda CASCADE;
+DROP TABLE IF EXISTS ventas CASCADE;
 
 CREATE TABLE cliente(
   id_cliente INTEGER PRIMARY KEY NOT NULL,
@@ -20,7 +22,18 @@ CREATE TABLE fecha(
   id_fecha INTEGER PRIMARY KEY NOT NULL,
   dia INTEGER,
   mes INTEGER,
-  ano INTEGER
+  anyo INTEGER
+);
+
+CREATE TABLE geografia(
+  id_geografia INTEGER PRIMARY KEY NOT NULL,
+  provincia VARCHAR(50),
+  municipio VARCHAR(50)
+);
+
+CREATE TABLE tienda(
+  id_tienda INTEGER PRIMARY KEY NOT NULL,
+  nombre VARCHAR(50)
 );
 
 CREATE TABLE ventas(
@@ -34,8 +47,12 @@ CREATE TABLE ventas(
   producto_id INTEGER,
   cliente_id INTEGER,
   fecha_id INTEGER,
+  geografia_id INTEGER,
+  tienda_id INTEGER,
   FOREIGN KEY(producto_id) REFERENCES producto(id_producto),
   FOREIGN KEY(cliente_id) REFERENCES cliente(id_cliente),
-  FOREIGN KEY(fecha_id) REFERENCES fecha(id_fecha)
+  FOREIGN KEY(fecha_id) REFERENCES fecha(id_fecha),
+  FOREIGN KEY(geografia_id) REFERENCES geografia(id_geografia),
+  FOREIGN KEY(tienda_id) REFERENCES tienda(id_tienda)
 );
 

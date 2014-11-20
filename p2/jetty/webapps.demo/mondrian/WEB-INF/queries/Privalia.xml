@@ -1,13 +1,23 @@
 <Schema name="Privalia" description="Moda_UB">
-  <Dimension type="TimeDimension" visible="true" name="Fecha">
+  <Dimension type="TimeDimension" visible="true" highCardinality="false" name="fecha">
     <Hierarchy visible="true" hasAll="true" primaryKey="id_fecha">
-      <Table name="fecha" schema="public" alias="">
+      <Table name="fecha" schema="public">
       </Table>
-      <Level name="fecha ano" visible="true" column="ano" type="Integer" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+      <Level name="fecha anyo" visible="true" column="anyo" type="Integer" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
       </Level>
       <Level name="fecha mes" visible="true" column="mes" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
       </Level>
       <Level name="fecha dia" visible="true" column="dia" type="Integer" uniqueMembers="false" levelType="TimeDays" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="geografia">
+    <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Municipios" primaryKey="id_geografia" defaultMember="[Todos los Municipios]">
+      <Table name="geografia" schema="public" alias="">
+      </Table>
+      <Level name="geografia provincia" visible="true" column="provincia" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="geografia municipio" visible="true" column="municipio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
     </Hierarchy>
   </Dimension>
@@ -34,8 +44,18 @@
         </Level>
       </Hierarchy>
     </Dimension>
-    <DimensionUsage source="Fecha" name="Fecha" visible="true" foreignKey="fecha_id">
+    <DimensionUsage source="fecha" name="fecha" visible="true" foreignKey="fecha_id" highCardinality="false">
     </DimensionUsage>
+    <DimensionUsage source="geografia" name="geografia" visible="true" foreignKey="geografia_id">
+    </DimensionUsage>
+    <Dimension type="StandardDimension" visible="true" foreignKey="tienda_id" name="tienda">
+      <Hierarchy visible="true" hasAll="true" allMemberName="Todas las Tiendas" primaryKey="id_tienda" defaultMember="[Todas las Tiendas]">
+        <Table name="tienda" schema="public" alias="">
+        </Table>
+        <Level name="tienda nombre" visible="true" column="nombre" type="String" uniqueMembers="true" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
     <Measure name="num_ventas" column="num_ventas" aggregator="distinct-count" visible="true">
     </Measure>
     <Measure name="num_devoluciones" column="num_devoluciones" aggregator="distinct-count" visible="true">
