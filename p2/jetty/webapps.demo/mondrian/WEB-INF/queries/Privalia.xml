@@ -11,13 +11,13 @@
       </Level>
     </Hierarchy>
   </Dimension>
-  <Dimension type="StandardDimension" visible="true" name="geografia">
-    <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Municipios" primaryKey="id_geografia" defaultMember="[Todos los Municipios]">
-      <Table name="geografia" schema="public" alias="">
+  <Dimension type="StandardDimension" visible="true" highCardinality="false" name="geografia">
+    <Hierarchy visible="true" hasAll="true" allMemberName="Todas las Provincias" primaryKey="id_geografia" defaultMember="[Todas las Provincias]">
+      <Table name="geografia" schema="public">
       </Table>
-      <Level name="geografia provincia" visible="true" column="provincia" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+      <Level name="geografia provincia" visible="true" table="geografia" column="id_provincia" nameColumn="desc_provincia" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
       </Level>
-      <Level name="geografia municipio" visible="true" column="municipio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      <Level name="geografia municipio" visible="true" table="geografia" column="id_municipio" nameColumn="desc_municipio" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
       </Level>
     </Hierarchy>
   </Dimension>
@@ -28,9 +28,9 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Productos" primaryKey="id_producto" defaultMember="[Todos los Productos]">
         <Table name="producto" schema="public">
         </Table>
-        <Level name="producto marca" visible="true" column="marca" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        <Level name="producto marca" visible="true" table="producto" column="id_marca" nameColumn="desc_marca" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="producto nombre" visible="true" column="nombre" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        <Level name="producto nombre" visible="true" table="producto" column="id_nombre" nameColumn="desc_nombre" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
@@ -38,33 +38,33 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Clientes" primaryKey="id_cliente" defaultMember="[Todos los Clientes]">
         <Table name="cliente" schema="public">
         </Table>
-        <Level name="cliente nombre" visible="true" column="nombre" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        <Level name="cliente edad" visible="true" table="cliente" column="id_edad" nameColumn="desc_edad" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="cliente edad" visible="true" column="edad" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        <Level name="cliente nombre" visible="true" table="cliente" column="id_nombre" nameColumn="desc_nombre" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
     <DimensionUsage source="fecha" name="fecha" visible="true" foreignKey="fecha_id" highCardinality="false">
     </DimensionUsage>
-    <DimensionUsage source="geografia" name="geografia" visible="true" foreignKey="geografia_id">
+    <DimensionUsage source="geografia" name="geografia" visible="true" foreignKey="geografia_id" highCardinality="false">
     </DimensionUsage>
-    <Dimension type="StandardDimension" visible="true" foreignKey="tienda_id" name="tienda">
+    <Dimension type="StandardDimension" visible="true" foreignKey="tienda_id" highCardinality="false" name="tienda">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas las Tiendas" primaryKey="id_tienda" defaultMember="[Todas las Tiendas]">
-        <Table name="tienda" schema="public" alias="">
+        <Table name="tienda" schema="public">
         </Table>
-        <Level name="tienda nombre" visible="true" column="nombre" type="String" uniqueMembers="true" levelType="Regular">
+        <Level name="tienda nombre" visible="true" table="tienda" column="id_nombre" type="Integer" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Measure name="num_ventas" column="num_ventas" aggregator="distinct-count" visible="true">
+    <Measure name="num_ventas" column="num_ventas" datatype="Integer" aggregator="sum" visible="true">
     </Measure>
-    <Measure name="num_devoluciones" column="num_devoluciones" aggregator="distinct-count" visible="true">
+    <Measure name="num_devoluciones" column="num_devoluciones" datatype="Numeric" aggregator="distinct-count" visible="true">
     </Measure>
-    <Measure name="importe" column="importe" aggregator="distinct-count" visible="true">
+    <Measure name="importe" column="importe" datatype="Integer" aggregator="sum" visible="true">
     </Measure>
-    <Measure name="impuestos" column="impuestos" aggregator="distinct-count" visible="true">
+    <Measure name="impuestos" column="impuestos" datatype="Integer" aggregator="sum" visible="true">
     </Measure>
-    <Measure name="coste_venta" column="coste_venta" aggregator="distinct-count" visible="true">
+    <Measure name="coste_venta" column="coste_venta" datatype="Integer" aggregator="sum" visible="true">
     </Measure>
   </Cube>
 </Schema>

@@ -14,10 +14,19 @@ catalogUri="/WEB-INF/queries/Privalia.xml"
 jdbcUser="dquitata12_adm" jdbcPassword="curs1415" connectionPooling="false">
 
 
-select {[Measures].[importe], [Measures].[impuestos],[Measures].[num_ventas],[Measures].[num_devoluciones],[Measures].[coste_venta]} ON columns,
-  {([Producto].[Todos los Productos],[Cliente].[Todos los Clientes],[Tienda].[Todas las Tiendas],[Geografia].[Todos los Municipios])} ON rows
-from [Ventas]
+select 
+	{
+		[Measures].[num_ventas],
+		[Measures].[num_devoluciones],
+		[Measures].[importe],
+		[Measures].[impuestos],
+		[Measures].[coste_venta]
+	} ON columns,
 
+	{
+		[Geografia].[Todas las Provincias]
+	} ON rows
+from [Ventas]
 
 
 </jp:mondrianQuery>
