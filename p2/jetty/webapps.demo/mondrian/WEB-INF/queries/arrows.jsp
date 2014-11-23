@@ -17,18 +17,19 @@ jdbcUser="dquitata12_adm" jdbcPassword="curs1415" connectionPooling="false">
 select 
 	{
 		[Measures].[num_ventas],
-		[Measures].[num_devoluciones],
+		[Measures].[devolucion],
 		[Measures].[importe],
 		[Measures].[impuestos],
 		[Measures].[coste_venta]
 	} ON columns,
 
 	{
-		[Geografia].[Todas las Provincias]
+		([Geografia].[Todas las Provincias],
+		[Tienda].[Todas las Tiendas],
+		[Producto].[Todos los Productos],
+		[Cliente].[Todos los Clientes])
 	} ON rows
 from [Ventas]
 
-
 </jp:mondrianQuery>
-
 <c:set var="title01" scope="session">Arrows</c:set>

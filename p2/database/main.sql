@@ -33,10 +33,18 @@ CREATE TABLE producto(
 );
 
 CREATE TABLE fecha(
-  id_fecha INTEGER PRIMARY KEY NOT NULL,
-  dia INTEGER,
-  mes INTEGER,
-  anyo INTEGER
+  id_fecha INTEGER NOT NULL,
+  
+  id_dia INTEGER NOT NULL,
+  desc_dia VARCHAR(20),
+  
+  id_mes INTEGER NOT NULL,
+  desc_mes VARCHAR(20),
+  
+  id_anyo INTEGER NOT NULL,
+  desc_anyo VARCHAR(20),
+  
+  PRIMARY KEY(id_fecha)
 );
 
 CREATE TABLE geografia(
@@ -81,5 +89,3 @@ CREATE TABLE ventas(
   FOREIGN KEY(geografia_id) REFERENCES geografia(id_geografia),
   FOREIGN KEY(tienda_id) REFERENCES tienda(id_tienda)
 );
-
-
