@@ -13,21 +13,20 @@ jdbcUrl="jdbc:postgresql://postgres.mat.ub.edu/dquitata12"
 catalogUri="/WEB-INF/queries/Privalia.xml"
 jdbcUser="dquitata12_adm" jdbcPassword="curs1415" connectionPooling="false">
 
-
 select 
 	{
 		[Measures].[num_ventas],
-		[Measures].[devolucion],
+		[Measures].[devuelto],
 		[Measures].[importe],
 		[Measures].[impuestos],
 		[Measures].[coste_venta]
+
 	} ON columns,
 
 	{
-		[Geografia].[Todas las Provincias]
-		<%--[Tienda].[Todas las Tiendas],
-		[Producto].[Todos los Productos],
-		[Cliente].[Todos los Clientes]--%>
+		
+		[Producto].[Todos los Productos]
+		
 	} ON rows
 from [Ventas]
 

@@ -120,7 +120,7 @@ CREATE TABLE campanya(
 
 CREATE TABLE ventas(
   num_ventas INTEGER,
-  num_devoluciones BOOLEAN,
+  devuelto INTEGER,
   importe REAL,
   impuestos REAL,
   coste_venta REAL,
