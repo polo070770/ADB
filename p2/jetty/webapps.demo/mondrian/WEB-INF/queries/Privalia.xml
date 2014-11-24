@@ -41,6 +41,8 @@
         <Level name="cliente edad" visible="true" column="id_edad" nameColumn="desc_edad" type="Integer" internalType="int" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Edad del cliente">
         </Level>
         <Level name="cliente nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Nombre del cliente">
+          <Property name="atri cliente apellidos" column="apellidos" type="String">
+          </Property>
         </Level>
       </Hierarchy>
     </Dimension>
@@ -52,31 +54,31 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas las Tiendas" primaryKey="id_tienda" defaultMember="[Todas las Tiendas]">
         <Table name="tienda" schema="public">
         </Table>
-        <Level name="tienda nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Nombre de tienda">
+        <Level name="tienda nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="Integer" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Nombre de tienda">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="sexo_id" name="sexo">
+    <Dimension type="StandardDimension" visible="true" foreignKey="sexo_id" highCardinality="false" name="sexo">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Sexos" primaryKey="id_sexo" defaultMember="[Todos los Sexos]">
-        <Table name="sexo" schema="public" alias="">
+        <Table name="sexo" schema="public">
         </Table>
-        <Level name="sexo nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Tipo de sexo">
+        <Level name="sexo nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="Integer" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Tipo de sexo">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="categoria_id" name="categoria">
+    <Dimension type="StandardDimension" visible="true" foreignKey="categoria_id" highCardinality="false" name="categoria">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas las Categorias" primaryKey="id_categoria" defaultMember="[Todas las Categorias]">
-        <Table name="categoria" schema="public" alias="">
+        <Table name="categoria" schema="public">
         </Table>
-        <Level name="categoria familia" visible="true" column="id_familia" nameColumn="desc_familia" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        <Level name="categoria familia" visible="true" column="id_familia" nameColumn="desc_familia" type="Integer" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
-        <Level name="categoria subfamilia" visible="true" column="id_subfamilia" nameColumn="desc_subfamilia" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        <Level name="categoria subfamilia" visible="true" column="id_subfamilia" nameColumn="desc_subfamilia" type="Integer" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="articulo_id" name="articulo">
+    <Dimension type="StandardDimension" visible="true" foreignKey="articulo_id" highCardinality="false" name="articulo">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Articulos" primaryKey="serial_number" defaultMember="[Todos los Articulos]">
-        <Table name="articulo" schema="public" alias="">
+        <Table name="articulo" schema="public">
         </Table>
         <Level name="articulo tamanyo" visible="true" column="id_tamanyo" nameColumn="desc_tamanyo" type="Integer" internalType="int" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
           <Property name="atri articulo color" column="color" type="String">
@@ -84,9 +86,9 @@
         </Level>
       </Hierarchy>
     </Dimension>
-    <Dimension type="StandardDimension" visible="true" foreignKey="campanya_id" name="campanya">
+    <Dimension type="StandardDimension" visible="true" foreignKey="campanya_id" highCardinality="false" name="campanya">
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas las Campanyas" primaryKey="id_campanya" defaultMember="[Todas las Campanyas]">
-        <Table name="campanya" schema="public" alias="">
+        <Table name="campanya" schema="public">
         </Table>
         <Level name="campanya nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
           <Property name="atri campanya numero articulos" column="n_articulos" type="Integer">

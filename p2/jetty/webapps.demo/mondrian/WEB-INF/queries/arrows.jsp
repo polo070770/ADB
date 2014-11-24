@@ -25,7 +25,7 @@ select
 
 	{
 		
-		[Producto].[Todos los Productos]
+		[Categoria].[Todas las categorias]
 		
 	} ON rows
 from [Ventas]
