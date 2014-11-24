@@ -24,10 +24,10 @@ select
 	} ON columns,
 
 	{
-		([Geografia].[Todas las Provincias],
-		[Tienda].[Todas las Tiendas],
+		[Geografia].[Todas las Provincias]
+		<%--[Tienda].[Todas las Tiendas],
 		[Producto].[Todos los Productos],
-		[Cliente].[Todos los Clientes])
+		[Cliente].[Todos los Clientes]--%>
 	} ON rows
 from [Ventas]
 
