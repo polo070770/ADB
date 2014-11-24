@@ -1,0 +1,10 @@
+\copy cliente FROM C:\Users\maikell\Documents\GitHub\ADB\p2\database\cliente.csv DELIMITER ';' CSV;
+\copy producto FROM C:\Users\maikell\Documents\GitHub\ADB\p2\database\producto.csv DELIMITER ';' CSV;
+\copy fecha FROM C:\Users\maikell\Documents\GitHub\ADB\p2\database\fecha.csv DELIMITER ';' CSV;
+\copy geografia FROM C:\Users\maikell\Documents\GitHub\ADB\p2\database\geografia.csv DELIMITER ';' CSV;
+\copy tienda FROM C:\Users\maikell\Documents\GitHub\ADB\p2\database\tienda.csv DELIMITER ';' CSV;
+\copy sexo FROM C:\Users\maikell\Documents\GitHub\ADB\p2\database\sexo.csv DELIMITER ';' CSV;
+\copy categoria FROM C:\Users\maikell\Documents\GitHub\ADB\p2\database\categoria.csv DELIMITER ';' CSV;
+\copy articulo FROM C:\Users\maikell\Documents\GitHub\ADB\p2\database\articulo.csv DELIMITER ';' CSV;
+\copy campanya FROM C:\Users\maikell\Documents\GitHub\ADB\p2\database\campanya.csv DELIMITER ';' CSV;
+\copy ventas FROM C:\Users\maikell\Documents\GitHub\ADB\p2\database\ventas.csv DELIMITER ';' CSV;
