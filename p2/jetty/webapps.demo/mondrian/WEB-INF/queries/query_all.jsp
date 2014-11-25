@@ -2,9 +2,6 @@
 <%@ taglib uri="http://www.tonbeller.com/jpivot" prefix="jp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 
-<%--
-  the values for "arrow=xxx" are the names of the images jpivot/jpivot/table/arrow-xxx.gif
---%>
 
 <jp:mondrianQuery 
 id="query01" 
@@ -24,7 +21,13 @@ select
 	} ON columns,
 
 	{
-		[Campanya].[Todas las campanyas]
+		(
+			[Categoria].[Todas las Categorias],
+			[Cliente].[Todos los Clientes],
+			[Geografia].[Todas las Provincias],
+			[Producto].[Todos los Productos],
+			[Tienda].[Todas las Tiendas]
+		)
 	} ON rows
 from [Ventas]
 
