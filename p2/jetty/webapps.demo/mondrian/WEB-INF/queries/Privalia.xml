@@ -15,9 +15,9 @@
     <Hierarchy visible="true" hasAll="true" allMemberName="Todas las Provincias" primaryKey="id_geografia" defaultMember="[Todas las Provincias]">
       <Table name="geografia" schema="public">
       </Table>
-      <Level name="geografia provincia" visible="true" column="id_provincia" nameColumn="desc_provincia" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      <Level name="geografia provincia" visible="true" column="id_provincia" nameColumn="desc_provincia" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
       </Level>
-      <Level name="geografia municipio" visible="true" column="id_municipio" nameColumn="desc_municipio" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      <Level name="geografia municipio" visible="true" column="id_municipio" nameColumn="desc_municipio" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
       </Level>
     </Hierarchy>
   </Dimension>
@@ -38,10 +38,10 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Clientes" primaryKey="id_cliente" defaultMember="[Todos los Clientes]">
         <Table name="cliente" schema="public">
         </Table>
-        <Level name="cliente edad" visible="true" column="id_edad" nameColumn="desc_edad" type="Integer" internalType="int" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Edad del cliente">
+        <Level name="cliente edad" visible="true" column="id_edad" nameColumn="desc_edad" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" description="Edad del cliente">
         </Level>
-        <Level name="cliente nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Nombre del cliente">
-          <Property name="atri cliente apellidos" column="apellidos" type="String">
+        <Level name="cliente nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" description="Nombre del cliente">
+          <Property name="atri cliente apellidos" column="apellidos" type="String" description="Apellidos del cliente">
           </Property>
         </Level>
       </Hierarchy>
@@ -54,7 +54,7 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas las Tiendas" primaryKey="id_tienda" defaultMember="[Todas las Tiendas]">
         <Table name="tienda" schema="public">
         </Table>
-        <Level name="tienda nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="Integer" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Nombre de tienda">
+        <Level name="tienda nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" description="Nombre de la tienda">
         </Level>
       </Hierarchy>
     </Dimension>
@@ -62,7 +62,7 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Sexos" primaryKey="id_sexo" defaultMember="[Todos los Sexos]">
         <Table name="sexo" schema="public">
         </Table>
-        <Level name="sexo nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="Integer" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never" description="Tipo de sexo">
+        <Level name="sexo nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" description="Tipo de sexo">
         </Level>
       </Hierarchy>
     </Dimension>
@@ -70,9 +70,9 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas las Categorias" primaryKey="id_categoria" defaultMember="[Todas las Categorias]">
         <Table name="categoria" schema="public">
         </Table>
-        <Level name="categoria familia" visible="true" column="id_familia" nameColumn="desc_familia" type="Integer" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        <Level name="categoria familia" visible="true" column="id_familia" nameColumn="desc_familia" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" description="Familia de la categoria">
         </Level>
-        <Level name="categoria subfamilia" visible="true" column="id_subfamilia" nameColumn="desc_subfamilia" type="Integer" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        <Level name="categoria subfamilia" visible="true" column="id_subfamilia" nameColumn="desc_subfamilia" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" description="Subfamilia de la categoria">
         </Level>
       </Hierarchy>
     </Dimension>
@@ -80,7 +80,7 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todos los Articulos" primaryKey="serial_number" defaultMember="[Todos los Articulos]">
         <Table name="articulo" schema="public">
         </Table>
-        <Level name="articulo tamanyo" visible="true" column="id_tamanyo" nameColumn="desc_tamanyo" type="Integer" internalType="int" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        <Level name="articulo tamanyo" visible="true" column="id_tamanyo" nameColumn="desc_tamanyo" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never" description="Tamanyo del articulo">
           <Property name="atri articulo color" column="color" type="String">
           </Property>
         </Level>
@@ -90,14 +90,14 @@
       <Hierarchy visible="true" hasAll="true" allMemberName="Todas las Campanyas" primaryKey="id_campanya" defaultMember="[Todas las Campanyas]">
         <Table name="campanya" schema="public">
         </Table>
-        <Level name="campanya nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
-          <Property name="atri campanya numero articulos" column="n_articulos" type="Integer">
+        <Level name="campanya nombre" visible="true" column="id_nombre" nameColumn="desc_nombre" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+          <Property name="atri campanya numero articulos" column="n_articulos" type="Integer" description="Numero de articulos en la campanya">
           </Property>
-          <Property name="atri campanya importe facturado" column="importe_facturado" type="Numeric">
+          <Property name="atri campanya importe facturado" column="importe_facturado" type="Numeric" description="Importe facturado en la campanya">
           </Property>
-          <Property name="atri campanya fecha inicio" column="fecha_inicio" type="String">
+          <Property name="atri campanya fecha inicio" column="fecha_inicio" type="String" description="Fecha de inicio de la campanya">
           </Property>
-          <Property name="atri campanya fecha" column="fecha_fin" type="String">
+          <Property name="atri campanya fecha fin" column="fecha_fin" type="String" description="Fecha fin de la campanya">
           </Property>
         </Level>
       </Hierarchy>

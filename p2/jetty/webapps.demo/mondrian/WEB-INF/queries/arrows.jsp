@@ -24,9 +24,7 @@ select
 	} ON columns,
 
 	{
-		
-		[Categoria].[Todas las categorias]
-		
+		[Campanya].[Todas las campanyas]
 	} ON rows
 from [Ventas]
 
