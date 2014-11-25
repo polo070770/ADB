@@ -21,15 +21,15 @@ select
 	} ON columns,
 
 	{
-		(
-			[Categoria].[Todas las Categorias],
+		(		
 			[Cliente].[Todos los Clientes],
 			[Geografia].[Todas las Provincias],
-			[Producto].[Todos los Productos],
-			[Tienda].[Todas las Tiendas]
+			[Tienda].[Todas las Tiendas],
+			[Categoria].[Todas las Categorias],
+			[Producto].[Todos los Productos]
 		)
 	} ON rows
 from [Ventas]
 
 </jp:mondrianQuery>
-<c:set var="title01" scope="session">Arrows</c:set>
+<c:set var="title01" scope="session">Consulta multidimensional</c:set>

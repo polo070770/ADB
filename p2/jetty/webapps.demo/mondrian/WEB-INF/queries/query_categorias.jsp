@@ -25,4 +25,4 @@ select
 from [Ventas]
 
 </jp:mondrianQuery>
-<c:set var="title01" scope="session">Arrows</c:set>
+<c:set var="title01" scope="session">Categorias</c:set>
